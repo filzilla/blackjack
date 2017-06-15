@@ -9,45 +9,41 @@
    write your logic.
 */
 
-
 function handValue (hand) {
-
-let currentHand = '';
-let handValue = hand[i];
+  var currentHand = 0;
 
 for (var i = 0; i < hand.length-1; i++) {
 
- if (hand[i] === 'K'){
+ if (hand[i] === 'K' || hand[i] === 'Q' || hand[i] === 'J'){
+  //  console.log(hand[i])
+   currentHand = currentHand + 10;
+ }
+ else if(hand[i] != 'K'||  'Q'||  'J'){
 
-return currentHand = handValue + 10;
-}
-else if ([i] === "Q"){
-
-return currentHand = handValue + 10;
-}
-else if ([i] === 'J'){
-
-return  currentHand = handValue + 10;
-}
-else if ([i] === 'A'){
-  for (var j = 0; j < hand.length; i++) {
-
-    if (currentHand > 11){
-    return value = parseInt(handValue) + 1;
-    }
-    else if(currentHand < 11){
-    return currentHand = parseInt(handValue) + 11;
-    }
-  }
+   currentHand +=  parseInt(hand[i]);
 
 }
-  else{
-    return currentHand = parseInt(handValue) + parseInt([i]);
-  }
+  else if (hand[i] === 'A'){
+    var valueAce = 0;
+
+      if (currentHand > 21){
+        valueAce = 1;
+         currentHand = currentHand + valueAce;
+        }
+      else if(currentHand < 10){
+        valueAce = 11;
+         currentHand = currentHand + valueAce;
+        }
+      
+      }
+  //whatever we add here
+}
 return currentHand;
 }
 
-}
+// console.log(c);
+
+
 
 
 /* -----  Hints ------
