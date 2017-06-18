@@ -12,34 +12,46 @@
 function handValue (hand) {
   var currentHand = 0;
 
-for (var i = 0; i < hand.length-1; i++) {
+for (var i = 0; i < hand.length; i++) {
 
- if (hand[i] === 'K' || hand[i] === 'Q' || hand[i] === 'J'){
-  //  console.log(hand[i])
-   currentHand = currentHand + 10;
+ if (hand[i] === 'K'){
+    console.log(hand[i])
+   currentHand += 10;
  }
- else if(hand[i] != 'K'||  'Q'||  'J'){
+ else if (hand[i] === 'Q'){
+    console.log(hand[i])
+   currentHand += 10;
+ }
+ else if (hand[i] === 'J'){
+    console.log(hand[i])
+   currentHand += 10;
+ }
+  else if(hand[i] < 11){
 
    currentHand +=  parseInt(hand[i]);
+ }
 
-}
+// valuation of the aces  use the while loop
+// to take into account multiple aces and values
   else if (hand[i] === 'A'){
-    var valueAce = 0;
-
-      if (currentHand > 21){
-        valueAce = 1;
-         currentHand = currentHand + valueAce;
-        }
-      else if(currentHand < 10){
-        valueAce = 11;
-         currentHand = currentHand + valueAce;
-        }
-      
+     var num_Aces= 1
+    num_Aces= num_Aces+ 1;
+   currentHand += 11;
+   console.log(num_Aces)
       }
+    while(num_Aces > 1 && currentHand >21){
+      currentHand -= 10;
+    }
+  }
+  return currentHand;
+
+}
+
+
+
   //whatever we add here
-}
-return currentHand;
-}
+
+
 
 // console.log(c);
 
